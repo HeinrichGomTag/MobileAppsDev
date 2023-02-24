@@ -15,10 +15,13 @@ struct ContentView: View {
     @State private var percentage = 0
     
     var body: some View {
+        
         ZStack {
             Color.green
                 .ignoresSafeArea()
+            
             VStack {
+                
                 Spacer()
                 Text("Welcome to the Slots Machine")
                     .foregroundColor(.white)
@@ -56,10 +59,12 @@ struct ContentView: View {
                 Text("Current Score: \(score)\n")
                     .foregroundColor(.white)
                     .font(.system(size: 28))
+                
                 Text("Total played: \(total)\n")
                     .foregroundColor(.white)
                     .font(.system(size: 28))
-                Text("Percentage: \(percentage)%\n")
+                
+                Text("Win percentage: \(percentage)%\n")
                     .foregroundColor(.white)
                     .font(.system(size: 28))
             }
