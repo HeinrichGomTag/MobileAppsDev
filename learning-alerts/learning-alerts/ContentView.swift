@@ -23,7 +23,18 @@ struct ContentView: View {
             })
                 .buttonStyle(.borderedProminent)
                 .tint(.mint)
-        }.alert("ALERT", isPresented: $showAlert, actions: {}, message: {Text("Alert")})
+//            Button(role:.destructive, action:{}, label: {
+//                Image(systemName: "suitcase")
+//                Label("Viajes", image:"")
+//            })
+            
+        }.alert("ALERT", isPresented: $showAlert, actions: {
+            
+        }, message: {
+//            Text("Alert")
+//            VStack{
+//            }
+        })
     }
 }
 
