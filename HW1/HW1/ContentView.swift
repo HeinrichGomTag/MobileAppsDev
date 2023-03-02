@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var slots = ["pencil", "eraser", "folder", "clipboard", "paperclip", "football", "trophy", "volleyball", "model", "cloud", "trash"]
+    @State private var slots = ["pencil", "eraser", "folder", "paperplane", "clipboard", "paperclip", "football", "trophy", "volleyball", "medal", "cloud", "trash"]
     @State private var currentSlots = ["pencil", "eraser", "folder"]
     
     @State private var current = "pencil";
@@ -23,22 +23,20 @@ struct ContentView: View {
         ZStack {
             Color.gray
                 .ignoresSafeArea()
-            Spacer()
+            
             
             VStack {
-                
-                
                 Text("Select \(current) from icons\n")
                     .foregroundColor(.white)
                     .font(.system(size: 28))
                 
-                VStack{
-                    Button(
-                        role:.cancel,
-                        action: check1,
-                        label: {
-                            Image(systemName: currentSlots[0])
-                                .imageScale(.large)
+                
+                Button(
+                    role:.cancel,
+                    action: check1,
+                    label: {
+                        Image(systemName: currentSlots[0])
+                            .imageScale(.large)
                         }
                     )
                     Text("\n")
@@ -62,16 +60,23 @@ struct ContentView: View {
                         }
                     )
                     Text("\n")
-                    
-                    Spacer()
+                
+                    Text("SCORE => \(score)\n")
+                        .foregroundColor(.white)
+                        .font(.system(size: 28))
                 }
-            }
         }
     }
     
     func check1(){
         if current ==  currentSlots[0]{
             score += 1
+        }
+        else{
+            score -= 1
+            if score < 0{
+                score = 0
+            }
         }
         new_icons()
     }
@@ -80,12 +85,24 @@ struct ContentView: View {
         if current ==  currentSlots[1]{
             score += 1
         }
+        else{
+            score -= 1
+            if score < 0{
+                score = 0
+            }
+        }
         new_icons()
     }
 
     func check3(){
         if current ==  currentSlots[2]{
             score += 1
+        }
+        else{
+            score -= 1
+            if score < 0{
+                score = 0
+            }
         }
         new_icons()
     }
@@ -95,6 +112,20 @@ struct ContentView: View {
         for _ in 1...3 {
             currentSlots.append(slots.randomElement()!)
         }
+        // IF 2 SLOTS ARE THE SAME, CHANGE ONE OF THOSE
+        for _ in currentSlots {
+            if currentSlots[0] == currentSlots[1] {
+                currentSlots[1] = slots.randomElement()!
+            }
+            if currentSlots[1] == currentSlots[2] {
+                currentSlots[2] = slots.randomElement()!
+            }
+            if currentSlots[0] == currentSlots[2] {
+                currentSlots[2] = slots.randomElement()!
+            }
+        }
+
+        current = currentSlots.randomElement()!
     }
 }
 
