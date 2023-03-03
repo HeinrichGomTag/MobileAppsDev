@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var score = 0
     
     @State private var showAlert = false;
+    @State private var message = "Incorrecto"
     
     
     var body: some View {
@@ -38,7 +39,7 @@ struct ContentView: View {
                         Image(systemName: currentSlots[0])
                             .imageScale(.large)
                         }
-                    )
+                )
                     Text("\n")
                     
                     Button(
@@ -65,13 +66,16 @@ struct ContentView: View {
                         .foregroundColor(.white)
                         .font(.system(size: 28))
                 }
-        }
+        }.alert(message, isPresented: $showAlert, actions:{Button("Entiendo", role: .cancel){new_icons()}}, message:{Text("Score: \(score)")}
+        )
     }
     
     func check1(){
+        showAlert = true;
         if current ==  currentSlots[0]{
             score += 1
-        }
+            message = "Correcto"
+        } 
         else{
             score -= 1
             if score < 0{
@@ -82,8 +86,10 @@ struct ContentView: View {
     }
 
     func check2(){
+        showAlert = true;
         if current ==  currentSlots[1]{
             score += 1
+            message = "Correcto"
         }
         else{
             score -= 1
@@ -95,8 +101,10 @@ struct ContentView: View {
     }
 
     func check3(){
+        showAlert = true;
         if current ==  currentSlots[2]{
             score += 1
+            message = "Correcto"
         }
         else{
             score -= 1
@@ -112,7 +120,6 @@ struct ContentView: View {
         for _ in 1...3 {
             currentSlots.append(slots.randomElement()!)
         }
-        // IF 2 SLOTS ARE THE SAME, CHANGE ONE OF THOSE
         for _ in currentSlots {
             if currentSlots[0] == currentSlots[1] {
                 currentSlots[1] = slots.randomElement()!
