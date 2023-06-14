@@ -20,4 +20,4 @@ var car2 = Car(color: "red", make: "honda")
 var car3 = bmw
 
 // CLASS car2 -> bmw
-// STRUCT car | bmw
+// STRUCT car | bmw1111
