@@ -14,3 +14,4 @@ var c: Float? = 1.0000000001 // Float
 if let value = b {
     print(value)
 }
+
