@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  spotifyclone
-//
-//  Created by Enrique Gomez Tagle on 15/06/23.
-//
-
 import SwiftUI
 import CoreData
 
@@ -33,8 +26,10 @@ struct ContentView: View {
                         Text("Search")
                     }
                 }
-                .tag(0)
-        }.toolbarBackground(.red, for: .tabBar)
+                .tag(1)
+        }
+        .background(Color.black) // Cambia el color de fondo a negro
+        .environment(\.colorScheme, .dark) // Aplica el modo oscuro
     }
 }
 

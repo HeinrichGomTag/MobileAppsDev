@@ -11,7 +11,7 @@ struct lImage_text_rlImage: View {
     var body: some View {
         HStack{
             Image(systemName: "timelapse").padding(.trailing, 10)
-            Text("title")
+            Text("Song Title")
             Spacer()
             Image(systemName: "ellipsis")
         }
