@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selection){
-            HomePage()
+            ContentItemViewer()
                 .font(.title)
                 .tabItem{
                     VStack {
@@ -34,7 +34,7 @@ struct ContentView: View {
                     }
                 }
                 .tag(0)
-        }
+        }.toolbarBackground(.red, for: .tabBar)
     }
 }
 
